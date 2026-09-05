@@ -1065,11 +1065,11 @@ func parsePLYBinary(
 
 	builder := newMeshBuilder("mm")
 
-	order := binary.BigEndian
+	var order binary.ByteOrder = binary.BigEndian
 
-	if littleEndian {
-		order = binary.LittleEndian
-	}
+    if littleEndian {
+    order = binary.LittleEndian
+    }
 
 	reader := bytes.NewReader(data)
 
